@@ -15,6 +15,10 @@ In this project you will build such a pipeline.
   * [The configuration](#the-configuration)
   * [Running the entire pipeline or just a selection of steps](#Running-the-entire-pipeline-or-just-a-selection-of-steps)
   * [Pre-existing components](#pre-existing-components)
+- [Run the completed pipeline](#run-the-completed-pipeline)
+  * [Release sequence](#release-sequence)
+  * [Local verification](#local-verification)
+- [In case of errors](#in-case-of-errors)
 
 ## Preliminary steps
 
@@ -50,7 +54,7 @@ Commit and push to the repository often while you make progress towards the solu
 to add meaningful commit messages.
 
 ### Create environment
-Make sure to have conda installed and ready, then create a new environment using the ``environment.yaml``
+Make sure to have conda installed and ready, then create a new environment using the ``environment.yml``
 file provided in the root of the repository and activate it:
 
 ```bash
@@ -141,6 +145,76 @@ You can see the parameters that they require by looking into their `MLproject` f
 
 - `get_data`: downloads the data. [MLproject](https://github.com/udacity/Project-Build-an-ML-Pipeline-Starter/blob/main/components/get_data/MLproject)
 - `train_val_test_split`: segrgate the data (splits the data) [MLproject](https://github.com/udacity/Project-Build-an-ML-Pipeline-Starter/blob/main/components/train_val_test_split/MLproject)
+
+## Run the completed pipeline
+
+After logging in to W&B, run the first two steps to create the raw and cleaned
+artifacts:
+
+```bash
+mlflow run . -P steps=download,basic_cleaning
+```
+
+In W&B, assign the `reference` alias to the first `clean_sample.csv` version.
+Then validate and split the data:
+
+```bash
+mlflow run . -P steps=data_check,data_split
+```
+
+Run the four required hyperparameter combinations. Each run logs validation
+`mae`, `r2`, feature importance, and a full MLflow sklearn model to W&B:
+
+```bash
+mlflow run . -P steps=train_random_forest \
+  -P hydra_options="modeling.random_forest.max_depth=10,50 modeling.random_forest.n_estimators=100,200 -m"
+```
+
+Assign the `prod` alias to the `random_forest_export` artifact from the run with
+the lowest validation MAE. Test that selected model on the held out test set:
+
+```bash
+mlflow run . -P steps=test_regression_model
+```
+
+The production model test is excluded from the default pipeline because it
+requires that manual `prod` selection. Once the reference alias exists,
+`mlflow run .` runs all other steps. Artifact names and step parameters are
+defined in `config.yaml`. The `main.env_manager` setting defaults to `conda`.
+
+### Release sequence
+
+Tag `1.0.0` contains the complete sample1 pipeline before the NYC boundary
+filter. Running it with `etl.sample=sample2.csv` exposes the out-of-area row in
+`test_proper_boundaries`. Tag `1.0.1` adds the boundary filter and passes the
+same data check. After publishing the tags as GitHub releases on your fork,
+run each version with:
+
+```bash
+mlflow run <your-fork-git-url> -v 1.0.0 -P hydra_options="etl.sample=sample2.csv"
+mlflow run <your-fork-git-url> -v 1.0.1 -P hydra_options="etl.sample=sample2.csv"
+```
+
+The `reference` alias must continue to point to the first cleaned sample;
+the new `latest` alias points to the cleaned second sample.
+
+### Local verification
+
+The sample data and model code were checked with Python 3.13, pandas 2.3.2,
+scikit-learn 1.7.2, and MLflow 3.3.2. Both samples passed all six data checks
+after cleaning. Before the NYC boundary filter, sample2 had one out-of-area
+listing and failed `test_proper_boundaries`, as expected.
+
+| Data | Clean rows | Validation MAE | Test MAE |
+| --- | ---: | ---: | ---: |
+| sample1.csv | 19,001 | 34.18 | 33.85 |
+| sample2.csv | 46,427 | 32.43 | 33.67 |
+
+The sample1 results use 200 trees and depth 50, selected from the four
+`max_depth` (10, 50) and `n_estimators` (100, 200) combinations. The default
+parameters in `config.yaml` match this selection. The sample2 results use the
+same parameters. These are local checks; the public W&B runs and GitHub
+releases are separate rubric evidence.
 
 ## In case of errors
 

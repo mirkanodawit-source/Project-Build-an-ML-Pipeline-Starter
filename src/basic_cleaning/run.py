@@ -28,7 +28,9 @@ def go(args: argparse.Namespace) -> None:
     # Convert last_review to datetime
     df['last_review'] = pd.to_datetime(df['last_review'], errors="coerce")
 
-    # NYC boundary filtering is added in the next release after data validation.
+    # Remove the out-of-area listing found in the second data sample.
+    idx = df['longitude'].between(-74.25, -73.50) & df['latitude'].between(40.5, 41.2)
+    df = df[idx].copy()
 
     # Save the cleaned data
     df.to_csv('clean_sample.csv',index=False)
