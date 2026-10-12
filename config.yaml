@@ -1,10 +1,23 @@
 main:
   components_repository: "components"
+  env_manager: conda
   # All the intermediate files will be copied to this directory at the end of the run.
   # Set this to null if you are running in prod
   project_name: nyc_airbnb
   experiment_name: development
   steps: all
+artifacts:
+  raw: sample.csv
+  raw_type: raw_data
+  raw_description: Raw file as downloaded
+  cleaned: clean_sample.csv
+  cleaned_type: clean_sample
+  cleaned_description: Price-filtered NYC rental listings
+  reference_alias: reference
+  trainval: trainval_data.csv
+  test: test_data.csv
+  model: random_forest_export
+  production_alias: prod
 etl:
   sample: "sample1.csv"
   min_price: 10  # dollars
@@ -26,8 +39,8 @@ modeling:
   # NOTE: you can put here any parameter that is accepted by the constructor of
   # RandomForestRegressor. This is a subsample, but more could be added:
   random_forest:
-    n_estimators: 100
-    max_depth: 15
+    n_estimators: 200
+    max_depth: 50
     min_samples_split: 4
     min_samples_leaf: 3
     # Here -1 means all available cores

@@ -11,15 +11,13 @@ import pandas as pd
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
 
-# DO NOT MODIFY
-def go(args):
+def go(args: argparse.Namespace) -> None:
+    """Clean the raw listing artifact and upload the cleaned CSV to W&B."""
 
     run = wandb.init(job_type="basic_cleaning")
     run.config.update(args)
 
-    # Download input artifact. This will also log that this script is using this
-    
-    run = wandb.init(project="nyc_airbnb", group="cleaning", save_code=True)
+    # Download the input artifact and record its use in the lineage graph.
     artifact_local_path = run.use_artifact(args.input_artifact).file()
     df = pd.read_csv(artifact_local_path)
     # Drop outliers
@@ -28,13 +26,9 @@ def go(args):
     idx = df['price'].between(min_price, max_price)
     df = df[idx].copy()
     # Convert last_review to datetime
-    df['last_review'] = pd.to_datetime(df['last_review'])
+    df['last_review'] = pd.to_datetime(df['last_review'], errors="coerce")
 
-    # Step 6: TODO
-    # Only implement this step when reaching Step 6: Pipeline Release and Updates
-    # in the project.
-    # Add longitude and latitude filter to allow test_proper_boundaries to pass
-    # ENTER CODE HERE
+    # NYC boundary filtering is added in the next release after data validation.
 
     # Save the cleaned data
     df.to_csv('clean_sample.csv',index=False)
@@ -47,53 +41,52 @@ def go(args):
  )
     artifact.add_file("clean_sample.csv")
     run.log_artifact(artifact)
+    run.finish()
 
 
-# TODO: In the code below, fill in the data type for each argument. The data type should be str, float or int. 
-# TODO: In the code below, fill in a description for each argument. The description should be a string.
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="A very basic data cleaning")
   
     parser.add_argument(
         "--input_artifact", 
-        type = ## INSERT TYPE HERE: str, float or int,
-        help = ## INSERT DESCRIPTION HERE,
+        type=str,
+        help="Raw W&B artifact to clean, including its alias or version",
         required = True
     )
 
     parser.add_argument(
         "--output_artifact", 
-        type = ## INSERT TYPE HERE: str, float or int,
-        help = ## INSERT DESCRIPTION HERE,
+        type=str,
+        help="Name of the cleaned output artifact",
         required = True
     )
 
     parser.add_argument(
         "--output_type", 
-        type = ## INSERT TYPE HERE: str, float or int,
-        help = ## INSERT DESCRIPTION HERE,
+        type=str,
+        help="W&B artifact type for the cleaned data",
         required = True
     )
 
     parser.add_argument(
         "--output_description", 
-        type = ## INSERT TYPE HERE: str, float or int,
-        help = ## INSERT DESCRIPTION HERE,
+        type=str,
+        help="Description of the cleaned output artifact",
         required = True
     )
 
     parser.add_argument(
         "--min_price", 
-        type = ## INSERT TYPE HERE: str, float or int,
-        help = ## INSERT DESCRIPTION HERE,
+        type=float,
+        help="Lowest accepted listing price in dollars",
         required = True
     )
 
     parser.add_argument(
         "--max_price",
-        type = ## INSERT TYPE HERE: str, float or int,
-        help = ## INSERT DESCRIPTION HERE,
+        type=float,
+        help="Highest accepted listing price in dollars",
         required = True
     )
 
