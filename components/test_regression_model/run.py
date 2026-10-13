@@ -7,6 +7,7 @@ import logging
 import wandb
 import mlflow
 import pandas as pd
+import tempfile
 from sklearn.metrics import mean_absolute_error
 
 from wandb_utils.log_artifact import log_artifact
@@ -24,10 +25,10 @@ def go(args):
     logger.info("Downloading artifacts")
     # Download input artifact. This will also log that this script is using this
     # particular version of the artifact
-    model_local_path = run.use_artifact(args.mlflow_model).download()
+    model_local_path = run.use_artifact(args.mlflow_model).download(root=tempfile.mkdtemp(prefix="nyc-model-"))
 
     # Download test dataset
-    test_dataset_path = run.use_artifact(args.test_dataset).file()
+    test_dataset_path = run.use_artifact(args.test_dataset).file(root=tempfile.mkdtemp(prefix="nyc-test-"))
 
     # Read test dataset
     X_test = pd.read_csv(test_dataset_path)
@@ -48,6 +49,7 @@ def go(args):
     # Log MAE and r2
     run.summary['r2'] = r_squared
     run.summary['mae'] = mae
+    run.finish()
 
 
 if __name__ == "__main__":

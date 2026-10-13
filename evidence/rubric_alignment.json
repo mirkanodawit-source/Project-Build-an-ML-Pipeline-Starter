@@ -1,0 +1,134 @@
+[
+  {
+    "section": "W&B Set-Up",
+    "criterion": "Public W&B project nyc_airbnb",
+    "evidence": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb",
+    "status": "Anonymous project access verified; both reviewer links documented"
+  },
+  {
+    "section": "Exploratory Data Analysis",
+    "criterion": "Obtain sample data",
+    "evidence": "evidence/live_audit.json: download_file runs",
+    "status": "sample.csv:v0 and acquisition run verified"
+  },
+  {
+    "section": "Data Cleaning",
+    "criterion": "Update all parameters",
+    "evidence": "src/basic_cleaning/run.py: typed CLI arguments, typed helper, parameter docstrings",
+    "status": "Implemented"
+  },
+  {
+    "section": "Data Cleaning",
+    "criterion": "Run basic_cleaning without errors",
+    "evidence": "evidence/live_audit.json: basic_cleaning runs",
+    "status": "Artifact-backed cleaning run succeeded"
+  },
+  {
+    "section": "Data Cleaning",
+    "criterion": "Create clean_data.csv in W&B",
+    "evidence": "clean_sample.csv:v0; see artifact naming clarification",
+    "status": "clean_sample.csv:v0 verified; rubric naming discrepancy documented"
+  },
+  {
+    "section": "Data Testing",
+    "criterion": "Create a reference tag for the latest version of the clean_sample.csv artifact",
+    "evidence": "evidence/live_audit.json: clean_sample.csv:v0 aliases",
+    "status": "reference alias on sample1 v0 verified"
+  },
+  {
+    "section": "Data Testing",
+    "criterion": "Implement the test_row_count and the test_price_range tests in src/data_check/test_data.py",
+    "evidence": "Both tests implemented with rubric bounds and configured prices",
+    "status": "Implemented; shared functions pass locally"
+  },
+  {
+    "section": "Data Testing",
+    "criterion": "The pipeline runs successfully",
+    "evidence": "evidence/live_audit.json: data_tests run mw0kho4k",
+    "status": "Six artifact-backed pytest checks passed"
+  },
+  {
+    "section": "Data Splitting",
+    "criterion": "Split data into training, validation and test sets",
+    "evidence": "main.py integrates train_val_test_split; train component makes validation split",
+    "status": "Implemented; local stratified splits verified"
+  },
+  {
+    "section": "Data Splitting",
+    "criterion": "The pipeline again runs successfully",
+    "evidence": "evidence/live_audit.json: train_val_test_split run zhsw6bpx",
+    "status": "Successful split run and both W&B split artifacts verified"
+  },
+  {
+    "section": "Train the Random Forest",
+    "criterion": "Complete the src/train_random_forest/run.py script",
+    "evidence": "Commented imputation/one-hot pipeline, sk_pipe, fit, MLflow save, W&B mae logging",
+    "status": "Implemented; local full-model export and reload pass"
+  },
+  {
+    "section": "Train the Random Forest",
+    "criterion": "The pipeline again runs successfully",
+    "evidence": "evidence/live_audit.json: finished training runs",
+    "status": "Four required configurations completed successfully"
+  },
+  {
+    "section": "Train the Random Forest",
+    "criterion": "Create the model_export artifact on W&B",
+    "evidence": "random_forest_export artifacts of type model_export",
+    "status": "MLflow sklearn exports verified in W&B; artifact type model_export"
+  },
+  {
+    "section": "Optimize Hyperparameters",
+    "criterion": "Run training with different hyperparameters",
+    "evidence": "evidence/live_audit.json; Hydra multirun",
+    "status": "Four distinct Hydra configurations completed with MAE/R2; repeat runs also present"
+  },
+  {
+    "section": "Select the Best Model",
+    "criterion": "Select the best performing model and tag it as prod",
+    "evidence": "Lowest validation MAE: 200 trees, depth 50; defaults match",
+    "status": "Lowest validation MAE model v7 assigned prod"
+  },
+  {
+    "section": "Test Set Verification",
+    "criterion": "Verify test set performance is comparable to performance on the validation set (no overfitting)",
+    "evidence": "main.py explicit test_regression_model step; local validation/test MAE table",
+    "status": "Production artifact test succeeded: MAE 33.8469 versus validation 34.1843"
+  },
+  {
+    "section": "Visualize the Pipeline",
+    "criterion": "Visualize the pipeline and verify proper structure",
+    "evidence": "Artifact use/log calls establish lineage in W&B workflow",
+    "status": "Graph view inspected; screenshot and live URL saved"
+  },
+  {
+    "section": "Release the Pipeline",
+    "criterion": "Release v1.0.0 of the pipeline in GitHub",
+    "evidence": "evidence/live_audit.json: GitHub releases API",
+    "status": "Release 1.0.0 public and published"
+  },
+  {
+    "section": "Train the Model on a New Data Sample",
+    "criterion": "Run the released pipeline on a new sample of data, with initial failure",
+    "evidence": "evidence/boundary_check.json confirms shared check fails before filter",
+    "status": "Actual tagged 1.0.0 MLflow sample2 failure log pending"
+  },
+  {
+    "section": "Train the Model on a New Data Sample",
+    "criterion": "Add a new cleaning step in basic_cleaning",
+    "evidence": "clean_data filters NYC longitude and latitude bounds",
+    "status": "Implemented; one sample2 outlier removed"
+  },
+  {
+    "section": "Train the Model on a New Data Sample",
+    "criterion": "Prepare a new release",
+    "evidence": "evidence/live_audit.json: GitHub releases API",
+    "status": "Release 1.0.1 public; subsequent Windows compatibility and evidence updates are included on main"
+  },
+  {
+    "section": "Train the Model on a New Data Sample",
+    "criterion": "Run the new release successfully",
+    "evidence": "Both cleaned samples pass local checks; sample2 model exported",
+    "status": "Actual tagged 1.0.1 successful MLflow run and new W&B model pending"
+  }
+]

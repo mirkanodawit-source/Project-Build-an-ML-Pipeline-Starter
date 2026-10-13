@@ -1,0 +1,8 @@
+{
+  "sample": "sample2.csv",
+  "before_filter": "FAILED as expected",
+  "rows_before_boundary_filter": 46428,
+  "after_filter": "PASSED",
+  "rows_after_boundary_filter": 46427,
+  "scope": "Local shared check function; not tagged MLflow execution"
+}

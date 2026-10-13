@@ -6,6 +6,19 @@ to be retrained with the same cadence, necessitating an end-to-end pipeline that
 
 In this project you will build such a pipeline.
 
+## Submission reviewer links
+
+- Public GitHub repository: https://github.com/mihretupg/Project-Build-an-ML-Pipeline-Starter
+- Public W&B project: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb (anonymous access verified; see evidence/live_audit.json)
+- [Submission report](SUBMISSION_REPORT.md)
+- [Evidence checklist](SUBMISSION_CHECKLIST.md)
+
+Submission status: core implementation, sample1 artifact-backed execution,
+production testing, and lineage are verified in [the live results](LIVE_RESULTS.md).
+Before final submission, retain actual sample2 runs from both historical releases.
+Existing local
+sample2 checks do not replace the required tagged-release execution.
+
 ## Table of contents
 
 - [Preliminary steps](#preliminary-steps)
@@ -147,6 +160,13 @@ You can see the parameters that they require by looking into their `MLproject` f
 - `train_val_test_split`: segrgate the data (splits the data) [MLproject](https://github.com/udacity/Project-Build-an-ML-Pipeline-Starter/blob/main/components/train_val_test_split/MLproject)
 
 ## Run the completed pipeline
+
+For a credential-free local run, install `requirements-local.txt` and execute
+`python verify_local.py`. This validates both bundled datasets, compares four
+forest configurations per sample, selects by validation MAE, reloads each
+exported MLflow model, and evaluates the held-out test set. Results are saved
+under `artifacts/local_verification`. See [REMOTE_RUN.md](REMOTE_RUN.md) for
+transfer instructions and the remote W&B evidence sequence without Conda.
 
 After logging in to W&B, run the first two steps to create the raw and cleaned
 artifacts:

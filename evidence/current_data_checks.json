@@ -1,0 +1,10 @@
+{
+  "sample1.csv": {
+    "rows": 19001,
+    "passed": 6
+  },
+  "sample2.csv": {
+    "rows": 46427,
+    "passed": 6
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "project_url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb",
+  "project_public_visibility": "not verified",
+  "download_run": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/3mb8uoyt",
+  "cleaning_run": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/criucppw",
+  "artifacts": {
+    "sample.csv": {
+      "version": "v0",
+      "type": "raw_data",
+      "aliases": [
+        "latest"
+      ],
+      "files": [
+        "sample1.csv"
+      ]
+    },
+    "clean_sample.csv": {
+      "version": "v0",
+      "type": "clean_sample",
+      "aliases": [
+        "latest"
+      ],
+      "files": [
+        "clean_sample.csv"
+      ]
+    }
+  }
+}

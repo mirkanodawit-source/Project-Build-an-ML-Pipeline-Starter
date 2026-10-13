@@ -1,0 +1,89 @@
+Rubric
+Use this project rubric to understand and assess the project criteria.
+W&B Set-Up
+CriteriaSubmission Requirements
+Public W&B project nyc_airbnb
+Your W&B project nyc_airbnb should be made public, so that your reviewer can access it. This is needed so the reviewer can check that the W&B steps have been executed successfully.
+Make sure the link to your W&B project, as well as your GitHub repository (i.e. two links), are included in a README file or given to the reviewer in the "Submission Details" box you can use when initiating the submission process.
+Exploratory Data Analysis
+CriteriaSubmission Requirements
+Obtain sample data
+There is a sample.csv artifact in W&B.
+The pipeline has been run to get a sample of the data, which has been uploaded to W&B.
+Data Cleaning
+CriteriaSubmission Requirements
+Update all parameters
+Add docstrings and the proper type to all parameters in the run.py script.
+Run basic_cleaning without errors
+The basic_cleaning step should be added to the main.py file and run without errors.
+In the main.py file all parameters are taken from the configuration file, and not hard-coded.
+Create clean_data.csv in W&B
+At the end of the run of this step, there should be a clean_data.csv artifact uploaded to W&B.
+Data Testing
+CriteriaSubmission Requirements
+Create a ���reference��� tag for the latest version of the clean_sample.csv artifact
+In W&B, manually add a tag called ���reference��� to the latest version of the clean_sample.csv artifact.
+Implement the test_row_count and the test_price_range tests in src/data_check/test_data.py
+Implements the test_row_count and the test_price_range tests in src/data_check/test_data.py.
+The added tests are checking respectively for a proper size of the dataset, and for a proper price range.
+The pipeline runs successfully
+The pipeline runs after this step, and all the tests pass.
+Data Splitting
+CriteriaSubmission Requirements
+Split data into training, validation and test sets.
+Adds the train_val_test_split component to the main.py file.
+The train_val_test_split has been provided to you. You can just add it to the main.py file and fill in the parameters appropriately.
+The pipeline again runs successfully
+The pipeline runs. At the end there should be 2 new artifacts on W&B: trainval_data.csv, test_data.csv.
+Train the Random Forest
+CriteriaSubmission Requirements
+Complete the src/train_random_forest/run.py script
+The src/train_random_forest/run.py script is completed.
+When checking the script, there should be the following steps in the script, marked by clear comments:
+In the get_inference_pipeline function, implement a pipeline called non_ordinal_categorical_preproc with two steps: a SimpleImputer(strategy="most_frequent") and a OneHotEncoder() step
+In the get_inference_pipeline function, create the inference pipeline called sk_pipe containing the preprocessing step and the Random Forest
+In the go function, fit the pipeline.
+In the go function, save the pipeline using MLFlow model export.
+Log the variable MAE to W&B
+The pipeline again runs successfully
+The pipeline again runs successfully.
+The train_random_forest step is added to the main.py file.
+Create the model_export artifact on W&B
+There should be an artifact created on W&B called model_export.
+The model_export artifact should contain a MLflow sklearn serialized model.
+Optimize Hyperparameters
+CriteriaSubmission Requirements
+Run training with different hyperparameters
+Using the Hydra system, run a hyper-parameter search.
+On W&B there should be the results of several (>2) training jobs with different hyperparameters.
+Select the Best Model
+CriteriaSubmission Requirements
+Select the best performing model and tag it as ���prod���
+Add the tag ���prod��� to the trained model with the best MAE.
+Test Set Verification
+CriteriaSubmission Requirements
+Verify test set performance is comparable to performance on the validation set (no overfitting)
+Implement the test_regression_model function in the main.py file. The test_regression_model is provided just as in the ���data splitting��� step.
+Verify that the performance is comparable to what was obtained against the validation set (i.e. no overfitting occurred).
+Visualize the Pipeline
+CriteriaSubmission Requirements
+Visualize the pipeline and verify proper structure
+Navigate to W&B, to the artifact section, then click on ���Graph view���. The resulting visualization should show the pipeline properly organized. Refer to the reference plot in the instruction.
+Release the Pipeline
+CriteriaSubmission Requirements
+Release v1.0.0 of the pipeline in GitHub
+A release of the pipeline is cut from the GitHub repository, with version 1.0.0 or similar (if you need more trials, you might assign versions like 1.0.1 or 1.0.2, which is totally fine).
+Train the Model on a New Data Sample
+CriteriaSubmission Requirements
+Run the released pipeline on a new sample of data, with initial failure
+Run the released pipeline on a new sample of data, sample2.csv. The first version 1.0.0 (or similar) should fail, because there is a data problem in sample2.csv.
+Add a new cleaning step in basic_cleaning
+Implement a new cleaning step that removes data points that are outside of the area of NYC in basic_cleaning.
+Prepare a new release
+After adding the new cleaning step and committing and pushing to the repository, release a new version (for example, 1.0.1).
+Run the new release successfully
+Re-running with the new release should produce a new trained model.
+Suggestions to Make Your Project Stand Out
+In the data exploration step, you can go far beyond what is shown here, such as including visualizations and other data cleaning steps. This should allow you to get even better performance from the model.
+Explore other models beyond the RandomForest trained here, creating a new separate step or customizing the random forest one to accommodate different types of models.
+Add discussion to a README file concerning other changes you might consider in future releases of your pipeline.

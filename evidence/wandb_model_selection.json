@@ -1,0 +1,64 @@
+{
+  "selected_run": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/dcmnozbd",
+  "selected_artifact": "mirkanodawit-western-governors-university/nyc_airbnb/random_forest_export:v7",
+  "validation_mae": 34.184256029779775,
+  "validation_r2": 0.5506161616124368,
+  "candidates": [
+    {
+      "run": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/m5lt1n9o",
+      "max_depth": 10,
+      "n_estimators": 100,
+      "mae": 34.431949196557326,
+      "r2": 0.5456126597490436
+    },
+    {
+      "run": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/d57g5dfv",
+      "max_depth": 10,
+      "n_estimators": 100,
+      "mae": 34.431949196557326,
+      "r2": 0.5456126597490436
+    },
+    {
+      "run": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/j7cov5hj",
+      "max_depth": 10,
+      "n_estimators": 200,
+      "mae": 34.404576149502475,
+      "r2": 0.546276374972624
+    },
+    {
+      "run": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/ettlxj5o",
+      "max_depth": 10,
+      "n_estimators": 200,
+      "mae": 34.404576149502475,
+      "r2": 0.546276374972624
+    },
+    {
+      "run": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/mw6tgqy9",
+      "max_depth": 50,
+      "n_estimators": 100,
+      "mae": 34.196322144888455,
+      "r2": 0.550075980783665
+    },
+    {
+      "run": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/3k44jpko",
+      "max_depth": 50,
+      "n_estimators": 100,
+      "mae": 34.196322144888455,
+      "r2": 0.550075980783665
+    },
+    {
+      "run": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/dcmnozbd",
+      "max_depth": 50,
+      "n_estimators": 200,
+      "mae": 34.184256029779775,
+      "r2": 0.5506161616124368
+    },
+    {
+      "run": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/xw3wo4xm",
+      "max_depth": 50,
+      "n_estimators": 200,
+      "mae": 34.184256029779775,
+      "r2": 0.5506161616124368
+    }
+  ]
+}

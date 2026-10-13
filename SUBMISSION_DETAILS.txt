@@ -1,0 +1,32 @@
+Build an ML Pipeline for Short-term Rental Prices in NYC
+
+GitHub repository:
+https://github.com/mihretupg/Project-Build-an-ML-Pipeline-Starter
+
+Public Weights & Biases project:
+https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb
+Public visibility: anonymous API access verified
+
+Releases:
+https://github.com/mihretupg/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.0
+https://github.com/mihretupg/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.1
+
+Reviewer guide: SUBMISSION_REPORT.md maps the six project stages to source files and evidence. LOCAL_RESULTS.md and evidence/report.json contain local verification results. The lowest validation MAE configuration was 200 trees and depth 50. Local sample1 test MAE was $33.85; sample2 test MAE was $33.67. These figures are local results, not W&B run results.
+
+Public run evidence:
+Sample acquisition (rubric EDA criterion): https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/3mb8uoyt
+Sample1 data validation run: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/mw0kho4k
+Four-run comparison: evidence/wandb_model_selection.json; https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/table
+Selected prod model artifact: https://forge.coreweave.com/wandb/mirkanodawit-western-governors-university/nyc_airbnb/artifacts/model_export/random_forest_export/v7
+Held-out model test run: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/rwyfahad
+Model lineage: https://forge.coreweave.com/wandb/mirkanodawit-western-governors-university/nyc_airbnb/artifacts/model_export/random_forest_export/v7/lineage
+Release 1.0.0 sample2 expected failure: PENDING
+Release 1.0.1 sample2 successful run: PENDING
+
+Finalize all PENDING fields before pasting this text into the submission form.
+
+Verified sample1 download run: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/3mb8uoyt
+Verified sample1 cleaning run: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/criucppw
+Artifacts: sample.csv:v0 and clean_sample.csv:v0 exist; reference alias verified on clean_sample.csv:v0.
+
+Live validation MAE $34.18; live held-out test MAE $33.85. Six data checks passed. Reference and prod aliases verified. See LIVE_RESULTS.md.

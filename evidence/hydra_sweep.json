@@ -1,0 +1,8 @@
+{
+  "entrypoint": "python windows_run.py",
+  "steps": "train_random_forest",
+  "hydra_options": "main.env_manager=local modeling.random_forest.max_depth=10,50 modeling.random_forest.n_estimators=100,200 -m",
+  "exit_code": 0,
+  "mlflow_parent_run": "bfbc71d0aa7d4ad386b0a570ea2fe231",
+  "wandb_run_ids": ["d57g5dfv", "ettlxj5o", "3k44jpko", "dcmnozbd"]
+}

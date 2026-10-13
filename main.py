@@ -7,6 +7,9 @@ import tempfile
 import hydra
 import mlflow
 from omegaconf import DictConfig
+from windows_mlflow import configure
+
+configure()
 
 
 _steps = [

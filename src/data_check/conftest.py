@@ -1,6 +1,7 @@
 import pytest
 import pandas as pd
 import wandb
+import tempfile
 
 
 def pytest_addoption(parser):
@@ -17,7 +18,7 @@ def data(request):
 
     # Download input artifact. This will also note that this script is using this
     # particular version of the artifact
-    data_path = run.use_artifact(request.config.option.csv).file()
+    data_path = run.use_artifact(request.config.option.csv).file(root=tempfile.mkdtemp(prefix="nyc-check-"))
 
     if data_path is None:
         pytest.fail("You must provide the --csv option on the command line")
@@ -33,7 +34,7 @@ def ref_data(request):
 
     # Download input artifact. This will also note that this script is using this
     # particular version of the artifact
-    data_path = run.use_artifact(request.config.option.ref).file()
+    data_path = run.use_artifact(request.config.option.ref).file(root=tempfile.mkdtemp(prefix="nyc-reference-"))
 
     if data_path is None:
         pytest.fail("You must provide the --ref option on the command line")

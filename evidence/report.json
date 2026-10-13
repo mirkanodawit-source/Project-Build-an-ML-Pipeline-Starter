@@ -1,0 +1,131 @@
+{
+  "config": {
+    "main": {
+      "components_repository": "components",
+      "env_manager": "conda",
+      "project_name": "nyc_airbnb",
+      "experiment_name": "development",
+      "steps": "all"
+    },
+    "artifacts": {
+      "raw": "sample.csv",
+      "raw_type": "raw_data",
+      "raw_description": "Raw file as downloaded",
+      "cleaned": "clean_sample.csv",
+      "cleaned_type": "clean_sample",
+      "cleaned_description": "Price-filtered NYC rental listings",
+      "reference_alias": "reference",
+      "trainval": "trainval_data.csv",
+      "test": "test_data.csv",
+      "model": "random_forest_export",
+      "production_alias": "prod"
+    },
+    "etl": {
+      "sample": "sample1.csv",
+      "min_price": 10,
+      "max_price": 350
+    },
+    "data_check": {
+      "kl_threshold": 0.2
+    },
+    "modeling": {
+      "test_size": 0.2,
+      "val_size": 0.2,
+      "random_seed": 42,
+      "stratify_by": "neighbourhood_group",
+      "max_tfidf_features": 5,
+      "random_forest": {
+        "n_estimators": 200,
+        "max_depth": 50,
+        "min_samples_split": 4,
+        "min_samples_leaf": 3,
+        "n_jobs": -1,
+        "criterion": "squared_error",
+        "max_features": 0.5,
+        "oob_score": true
+      }
+    }
+  },
+  "samples": {
+    "sample1.csv": {
+      "raw_rows": 20000,
+      "clean_rows": 19001,
+      "data_checks_passed": 6,
+      "out_of_area_before_filter": 0,
+      "candidates": [
+        {
+          "max_depth": 10,
+          "n_estimators": 100,
+          "validation_mae": 34.431949196557326,
+          "validation_r2": 0.5456126597490437
+        },
+        {
+          "max_depth": 10,
+          "n_estimators": 200,
+          "validation_mae": 34.404576149502475,
+          "validation_r2": 0.546276374972624
+        },
+        {
+          "max_depth": 50,
+          "n_estimators": 100,
+          "validation_mae": 34.196322144888455,
+          "validation_r2": 0.550075980783665
+        },
+        {
+          "max_depth": 50,
+          "n_estimators": 200,
+          "validation_mae": 34.184256029779775,
+          "validation_r2": 0.5506161616124368
+        }
+      ],
+      "selected": {
+        "max_depth": 50,
+        "n_estimators": 200,
+        "validation_mae": 34.184256029779775,
+        "validation_r2": 0.5506161616124368
+      },
+      "test_mae": 33.846924076517,
+      "test_r2": 0.5619290498292977
+    },
+    "sample2.csv": {
+      "raw_rows": 48895,
+      "clean_rows": 46427,
+      "data_checks_passed": 6,
+      "out_of_area_before_filter": 1,
+      "candidates": [
+        {
+          "max_depth": 10,
+          "n_estimators": 100,
+          "validation_mae": 32.94299586030939,
+          "validation_r2": 0.5694485667341815
+        },
+        {
+          "max_depth": 10,
+          "n_estimators": 200,
+          "validation_mae": 32.947954890477206,
+          "validation_r2": 0.5696587762614752
+        },
+        {
+          "max_depth": 50,
+          "n_estimators": 100,
+          "validation_mae": 32.4737046033328,
+          "validation_r2": 0.5776178848176677
+        },
+        {
+          "max_depth": 50,
+          "n_estimators": 200,
+          "validation_mae": 32.42710314040695,
+          "validation_r2": 0.5781173766761045
+        }
+      ],
+      "selected": {
+        "max_depth": 50,
+        "n_estimators": 200,
+        "validation_mae": 32.42710314040695,
+        "validation_r2": 0.5781173766761045
+      },
+      "test_mae": 33.67065155733279,
+      "test_r2": 0.5726449105384639
+    }
+  }
+}

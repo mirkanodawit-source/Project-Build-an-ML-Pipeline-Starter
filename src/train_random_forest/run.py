@@ -5,7 +5,7 @@ This script trains a Random Forest
 import argparse
 import logging
 import os
-import shutil
+import tempfile
 import matplotlib
 
 matplotlib.use("Agg")  # Render W&B figures without a desktop display.
@@ -56,7 +56,7 @@ def go(args):
 
     # Use run.use_artifact(...).file() to get the train and validation artifact
     # and save the returned path in train_local_path
-    trainval_local_path = run.use_artifact(args.trainval_artifact).file()
+    trainval_local_path = run.use_artifact(args.trainval_artifact).file(root=tempfile.mkdtemp(prefix="nyc-trainval-"))
    
     X = pd.read_csv(trainval_local_path)
     y = X.pop("price")  # this removes the column "price" from X and puts it into y
@@ -93,9 +93,9 @@ def go(args):
 
     logger.info("Exporting model")
 
-    # Save model package in the MLFlow sklearn format
-    if os.path.exists("random_forest_dir"):
-        shutil.rmtree("random_forest_dir")
+    # Isolate each export so concurrent Hydra runs cannot overwrite a model.
+    export_root = tempfile.TemporaryDirectory(prefix="nyc-model-export-")
+    model_path = os.path.join(export_root.name, "model")
 
     # Save the full inference pipeline in MLflow's sklearn model format.
     input_example = X_train.iloc[:5].copy()
@@ -105,7 +105,7 @@ def go(args):
     input_example[integer_columns] = input_example[integer_columns].astype(float)
     mlflow.sklearn.save_model(
         sk_model=sk_pipe,
-        path="random_forest_dir",
+        path=model_path,
         input_example=input_example,
     )
 
@@ -117,7 +117,7 @@ def go(args):
         description = 'Trained random forest inference pipeline',
         metadata = rf_config
     )
-    artifact.add_dir('random_forest_dir')
+    artifact.add_dir(model_path)
     run.log_artifact(artifact)
 
     # Plot feature importance
@@ -134,6 +134,7 @@ def go(args):
     )
     plt.close(fig_feat_imp)
     run.finish()
+    export_root.cleanup()
 
 
 def plot_feature_importance(pipe, feat_names):
