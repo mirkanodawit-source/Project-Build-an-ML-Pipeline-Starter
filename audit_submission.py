@@ -7,7 +7,7 @@ import requests
 import wandb
 
 PROJECT = "mirkanodawit-western-governors-university/nyc_airbnb"
-REPOSITORY = "mihretupg/Project-Build-an-ML-Pipeline-Starter"
+REPOSITORY = "mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter"
 
 
 def main():

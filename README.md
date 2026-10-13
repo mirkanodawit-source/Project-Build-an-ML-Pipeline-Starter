@@ -8,7 +8,7 @@ In this project you will build such a pipeline.
 
 ## Submission reviewer links
 
-- Public GitHub repository: https://github.com/mihretupg/Project-Build-an-ML-Pipeline-Starter
+- Public GitHub repository: https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter
 - Public W&B project: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb (anonymous access verified; see evidence/live_audit.json)
 - [Submission report](SUBMISSION_REPORT.md)
 

@@ -46,8 +46,8 @@ mlflow run . --env-manager local -P steps=test_regression_model -P hydra_options
 The published GitHub releases preserve the required before/after boundary fix:
 
 ```bash
-mlflow run https://github.com/mihretupg/Project-Build-an-ML-Pipeline-Starter.git -v 1.0.0 --env-manager local -P hydra_options="main.env_manager=local etl.sample=sample2.csv"
-mlflow run https://github.com/mihretupg/Project-Build-an-ML-Pipeline-Starter.git -v 1.0.1 --env-manager local -P hydra_options="main.env_manager=local etl.sample=sample2.csv"
+mlflow run https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter.git -v 1.0.0 --env-manager local -P hydra_options="main.env_manager=local etl.sample=sample2.csv"
+mlflow run https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter.git -v 1.0.1 --env-manager local -P hydra_options="main.env_manager=local etl.sample=sample2.csv"
 ```
 
 Version 1.0.0 should fail the sample2 boundary check; 1.0.1 should pass. These

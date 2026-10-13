@@ -1,15 +1,15 @@
 Build an ML Pipeline for Short-term Rental Prices in NYC
 
 GitHub repository:
-https://github.com/mihretupg/Project-Build-an-ML-Pipeline-Starter
+https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter
 
 Public Weights & Biases project:
 https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb
 Public visibility: anonymous API access verified
 
 Releases:
-https://github.com/mihretupg/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.0
-https://github.com/mihretupg/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.1
+https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.0
+https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.1
 
 Reviewer guide: SUBMISSION_REPORT.md maps the six project stages to source files and evidence. LOCAL_RESULTS.md and evidence/report.json contain local verification results. The lowest validation MAE configuration was 200 trees and depth 50. Local sample1 test MAE was $33.85; sample2 test MAE was $33.67. These figures are local results, not W&B run results.
 

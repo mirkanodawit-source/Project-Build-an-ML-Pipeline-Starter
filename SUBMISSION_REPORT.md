@@ -6,9 +6,9 @@ The core implementation and local checks are complete. Live W&B run and artifact
 
 ## Reviewer links
 
-- GitHub repository: https://github.com/mihretupg/Project-Build-an-ML-Pipeline-Starter
-- Release 1.0.0: https://github.com/mihretupg/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.0
-- Release 1.0.1: https://github.com/mihretupg/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.1
+- GitHub repository: https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter
+- Release 1.0.0: https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.0
+- Release 1.0.1: https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.1
 - Public W&B project: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb (anonymous access verified).
 
 ## Requirement and evidence mapping
