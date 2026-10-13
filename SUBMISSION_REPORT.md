@@ -97,7 +97,6 @@ Release 1.0.0 precedes the boundary fix. Release 1.0.1 includes the NYC boundary
 Use Python 3.13, install `requirements-local.txt` and `pip install -e ./components`, then execute `python verify_local.py`. The script creates cleaned data, four validation comparisons per sample, selected model exports, feature importance plots, held-out predictions, and `report.json` under `artifacts/local_verification`. Move existing results aside before rerunning to preserve prior model exports.
 
 - `SUBMISSION_REPORT.md`: this evidence narrative and requirement mapping.
-- `SUBMISSION_CHECKLIST.md`: remaining reviewer-access and W&B evidence checks.
 - `SUBMISSION_DETAILS.txt`: text to finalize and paste into Udacity Submission Details.
 - `evidence/`: local metrics, boundary checks, environment versions, and plots.
 - `src/`, `components/`, MLproject files, YAML files, and sample data: executable pipeline.

@@ -11,7 +11,6 @@ In this project you will build such a pipeline.
 - Public GitHub repository: https://github.com/mihretupg/Project-Build-an-ML-Pipeline-Starter
 - Public W&B project: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb (anonymous access verified; see evidence/live_audit.json)
 - [Submission report](SUBMISSION_REPORT.md)
-- [Evidence checklist](SUBMISSION_CHECKLIST.md)
 
 Submission status: core implementation, sample1 artifact-backed execution,
 production testing, and lineage are verified in [the live results](LIVE_RESULTS.md).
