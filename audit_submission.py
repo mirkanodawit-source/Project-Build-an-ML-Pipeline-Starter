@@ -16,7 +16,7 @@ def main():
     for run in api.runs(PROJECT):
         runs.append({
             "id": run.id, "url": run.url, "state": run.state,
-            "job_type": run.job_type, "config": dict(run.config),
+            "job_type": run.job_type, "group": run.group, "config": dict(run.config),
             "metrics": {k: run.summary[k] for k in ("mae", "r2") if k in run.summary},
             "inputs": [a.qualified_name for a in run.used_artifacts()],
             "outputs": [{"name": a.qualified_name, "type": a.type,

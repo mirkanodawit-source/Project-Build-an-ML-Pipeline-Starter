@@ -4,11 +4,13 @@ from pathlib import Path
 import wandb
 PROJECT = "mirkanodawit-western-governors-university/nyc_airbnb"
 api = wandb.Api(timeout=60)
-runs = [r for r in api.runs(PROJECT) if r.job_type == "train_random_forest" and r.state == "finished" and "mae" in r.summary]
+runs = [r for r in api.runs(PROJECT) if r.job_type == "train_random_forest" and r.state == "finished" and "mae" in r.summary
+        and any(a.name.split(":")[0] == "model_export" for a in r.logged_artifacts())
+        and any(a.name == "trainval_data.csv:v0" for a in r.used_artifacts())]
 combinations = {(r.config.get("max_depth"), r.config.get("n_estimators")) for r in runs}
 assert {(10,100),(10,200),(50,100),(50,200)} <= combinations, combinations
 best = min(runs, key=lambda r: r.summary["mae"])
-artifacts = [a for a in best.logged_artifacts() if a.type == "model_export"]
+artifacts = [a for a in best.logged_artifacts() if a.type == "model_export" and a.name.split(":")[0] == "model_export"]
 assert len(artifacts) == 1
 artifact = artifacts[0]
 artifact.aliases = list(set(artifact.aliases) | {"prod"})

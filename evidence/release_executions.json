@@ -1,0 +1,212 @@
+{
+  "releases": [
+    {
+      "tag": "1.0.0",
+      "repository": "https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter.git",
+      "tag_commit": "e71ce39f7c9133774545323bfa725cd3835a6ec9",
+      "sample": "sample2.csv",
+      "mlflow_run_id": "bc12b0a930434a55bd57b7b2ef180b3c",
+      "mlflow_status": "FAILED",
+      "mlflow_tags": {
+        "mlflow.project.backend": "local",
+        "mlflow.project.entryPoint": "main",
+        "mlflow.runName": "languid-zebra-500",
+        "mlflow.source.git.commit": "e71ce39f7c9133774545323bfa725cd3835a6ec9",
+        "mlflow.source.git.repoURL": "https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter.git",
+        "mlflow.source.name": "https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter.git",
+        "mlflow.source.type": "PROJECT",
+        "mlflow.user": "BSD"
+      },
+      "mlflow_parameters": {
+        "hydra_options": "\"main.env_manager=local etl.sample=sample2.csv main.experiment_name=review-release-1.0.0\"",
+        "steps": "all"
+      },
+      "console": "evidence/release-1.0.0-console.txt",
+      "wandb_runs": [
+        {
+          "id": "ynws91ir",
+          "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/ynws91ir",
+          "state": "finished",
+          "job_type": "download_file",
+          "config": {
+            "sample": "sample2.csv",
+            "artifact_name": "sample.csv",
+            "artifact_type": "raw_data",
+            "artifact_description": "Raw file as downloaded"
+          },
+          "inputs": [],
+          "outputs": [
+            "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v1"
+          ],
+          "metrics": {}
+        },
+        {
+          "id": "qctq8esu",
+          "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/qctq8esu",
+          "state": "finished",
+          "job_type": "basic_cleaning",
+          "config": {
+            "max_price": 350,
+            "min_price": 10,
+            "output_type": "clean_sample",
+            "input_artifact": "sample.csv:latest",
+            "output_artifact": "clean_sample.csv",
+            "output_description": "Price-filtered NYC rental listings"
+          },
+          "inputs": [
+            "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v1"
+          ],
+          "outputs": [
+            "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v1"
+          ],
+          "metrics": {}
+        },
+        {
+          "id": "bm3kjmqf",
+          "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/bm3kjmqf",
+          "state": "failed",
+          "job_type": "data_tests",
+          "config": {},
+          "inputs": [
+            "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v1",
+            "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v0"
+          ],
+          "outputs": [],
+          "metrics": {}
+        }
+      ]
+    },
+    {
+      "tag": "1.0.1",
+      "repository": "https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter.git",
+      "tag_commit": "22bb8490da6515b7943215dab4ecbba9f3788058",
+      "sample": "sample2.csv",
+      "mlflow_run_id": "374644e3e55a4259bc10db10a5165f45",
+      "mlflow_status": "FINISHED",
+      "mlflow_tags": {
+        "mlflow.project.backend": "local",
+        "mlflow.project.entryPoint": "main",
+        "mlflow.runName": "overjoyed-dog-108",
+        "mlflow.source.git.commit": "22bb8490da6515b7943215dab4ecbba9f3788058",
+        "mlflow.source.git.repoURL": "https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter.git",
+        "mlflow.source.name": "https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter.git",
+        "mlflow.source.type": "PROJECT",
+        "mlflow.user": "BSD"
+      },
+      "mlflow_parameters": {
+        "hydra_options": "\"main.env_manager=local etl.sample=sample2.csv main.experiment_name=review-release-1.0.1 artifacts.model=model_export\"",
+        "steps": "all"
+      },
+      "console": "evidence/release-1.0.1-console.txt",
+      "wandb_runs": [
+        {
+          "id": "ecwq7710",
+          "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/ecwq7710",
+          "state": "finished",
+          "job_type": "download_file",
+          "config": {
+            "sample": "sample2.csv",
+            "artifact_name": "sample.csv",
+            "artifact_type": "raw_data",
+            "artifact_description": "Raw file as downloaded"
+          },
+          "inputs": [],
+          "outputs": [
+            "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v1"
+          ],
+          "metrics": {}
+        },
+        {
+          "id": "x0xlkjzc",
+          "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/x0xlkjzc",
+          "state": "finished",
+          "job_type": "basic_cleaning",
+          "config": {
+            "max_price": 350,
+            "min_price": 10,
+            "output_type": "clean_sample",
+            "input_artifact": "sample.csv:latest",
+            "output_artifact": "clean_sample.csv",
+            "output_description": "Price-filtered NYC rental listings"
+          },
+          "inputs": [
+            "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v1"
+          ],
+          "outputs": [
+            "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v2"
+          ],
+          "metrics": {}
+        },
+        {
+          "id": "5ka7keeu",
+          "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/5ka7keeu",
+          "state": "finished",
+          "job_type": "data_tests",
+          "config": {},
+          "inputs": [
+            "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v2",
+            "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v0"
+          ],
+          "outputs": [],
+          "metrics": {}
+        },
+        {
+          "id": "rbwqm56f",
+          "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/rbwqm56f",
+          "state": "finished",
+          "job_type": "train_val_test_split",
+          "config": {
+            "input": "clean_sample.csv:latest",
+            "test_size": 0.2,
+            "random_seed": 42,
+            "stratify_by": "neighbourhood_group"
+          },
+          "inputs": [
+            "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v2"
+          ],
+          "outputs": [
+            "mirkanodawit-western-governors-university/nyc_airbnb/trainval_data.csv:v2",
+            "mirkanodawit-western-governors-university/nyc_airbnb/test_data.csv:v2"
+          ],
+          "metrics": {}
+        },
+        {
+          "id": "h6g50azk",
+          "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/h6g50azk",
+          "state": "finished",
+          "job_type": "train_random_forest",
+          "config": {
+            "n_jobs": -1,
+            "val_size": 0.2,
+            "criterion": "squared_error",
+            "max_depth": 50,
+            "oob_score": true,
+            "rf_config": "C:\\Users\\BSD\\AppData\\Local\\Temp\\tmpkhwxxqqo\\rf_config.json",
+            "random_seed": 42,
+            "stratify_by": "neighbourhood_group",
+            "max_features": 0.5,
+            "n_estimators": 200,
+            "output_artifact": "model_export",
+            "min_samples_leaf": 3,
+            "min_samples_split": 4,
+            "trainval_artifact": "trainval_data.csv:latest",
+            "max_tfidf_features": 5
+          },
+          "inputs": [
+            "mirkanodawit-western-governors-university/nyc_airbnb/trainval_data.csv:v2"
+          ],
+          "outputs": [
+            "mirkanodawit-western-governors-university/nyc_airbnb/model_export:v4"
+          ],
+          "metrics": {
+            "mae": 32.42710314040695,
+            "r2": 0.5781173766761045
+          }
+        }
+      ]
+    }
+  ],
+  "reference_version": "v0",
+  "latest_cleaned_version": "v2",
+  "windows_compatibility": "Git Bash entry points, temporary single-file artifact cache, and POSIX-compatible temporary-file reopening; tagged source unchanged"
+}

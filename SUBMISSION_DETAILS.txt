@@ -1,32 +1,27 @@
-Build an ML Pipeline for Short-term Rental Prices in NYC
+Build an ML Pipeline for Short-term Rental Prices in NYC — resubmission
 
 GitHub repository:
 https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter
 
-Public Weights & Biases project:
+Public W&B project:
 https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb
-Public visibility: anonymous API access verified
 
-Releases:
-https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.0
-https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.1
+Q13 model artifact: model_export:v3 contains a complete MLflow sklearn model (MLmodel, model.pkl, and environment files) and has the prod alias.
+https://forge.coreweave.com/wandb/mirkanodawit-western-governors-university/nyc_airbnb/artifacts/model_export/model_export/v3
+Sample1 validation MAE: $34.1843. Held-out test MAE: $33.8469.
+Test run: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/eyd17cut
 
-Reviewer guide: SUBMISSION_REPORT.md maps the six project stages to source files and evidence. LOCAL_RESULTS.md and evidence/report.json contain local verification results. The lowest validation MAE configuration was 200 trees and depth 50. Local sample1 test MAE was $33.85; sample2 test MAE was $33.67. These figures are local results, not W&B run results.
+Q17 full pipeline graph: images/wandb-pipeline-graph.png in the GitHub repo. This fresh screenshot shows the mirkanodawit-western-governors-university / nyc_airbnb breadcrumb, raw and cleaned data, split, model_export:v3, and held-out test branch. The current W&B artifact interface labels the graph tab Lineage.
+Live graph: https://forge.coreweave.com/wandb/mirkanodawit-western-governors-university/nyc_airbnb/artifacts/model_export/model_export/v3/lineage
 
-Public run evidence:
-Sample acquisition (rubric EDA criterion): https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/3mb8uoyt
-Sample1 data validation run: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/mw0kho4k
-Four-run comparison: evidence/wandb_model_selection.json; https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/table
-Selected prod model artifact: https://forge.coreweave.com/wandb/mirkanodawit-western-governors-university/nyc_airbnb/artifacts/model_export/random_forest_export/v7
-Held-out model test run: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/rwyfahad
-Model lineage: https://forge.coreweave.com/wandb/mirkanodawit-western-governors-university/nyc_airbnb/artifacts/model_export/random_forest_export/v7/lineage
-Release 1.0.0 sample2 expected failure: PENDING
-Release 1.0.1 sample2 successful run: PENDING
+Q19: The actual public GitHub release 1.0.0 was run with etl.sample=sample2.csv. The W&B data-test run failed test_proper_boundaries because sample2 had one listing outside the NYC bounds; the other five tests passed. The MLflow root run failed as expected.
+Failed W&B run: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/bm3kjmqf
+Release: https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.0
 
-Finalize all PENDING fields before pasting this text into the submission form.
+Q22: The actual public GitHub release 1.0.1 was run with etl.sample=sample2.csv. All six data checks passed, the split and training completed, and a new model_export:v4 artifact was logged. The MLflow root run succeeded.
+Six-passing-check W&B run: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/5ka7keeu
+Training W&B run: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/h6g50azk
+Release: https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.1
+Sample2 validation MAE: $32.4271. clean_sample.csv:reference remains v0 (sample1); latest is v2 (cleaned sample2).
 
-Verified sample1 download run: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/3mb8uoyt
-Verified sample1 cleaning run: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/criucppw
-Artifacts: sample.csv:v0 and clean_sample.csv:v0 exist; reference alias verified on clean_sample.csv:v0.
-
-Live validation MAE $34.18; live held-out test MAE $33.85. Six data checks passed. Reference and prod aliases verified. See LIVE_RESULTS.md.
+See SUBMISSION_REPORT.md and evidence/release_executions.json for exact versions, run IDs, and the preserved release console logs.

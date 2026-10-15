@@ -1,8 +1,33 @@
 # NYC short term rental price pipeline submission report
 
+## October 15, 2026 reviewer corrections
+
+The current configuration logs an MLflow sklearn artifact named `model_export`.
+The sample1 production selection is `model_export:v3` (`prod`), with validation
+MAE $34.1843 and held-out test MAE $33.8469. The current test run is
+https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/eyd17cut.
+The original `random_forest_export` references below describe the earlier
+submission and its historical W&B evidence.
+
+The replacement [pipeline graph](images/wandb-pipeline-graph.png) was captured
+from the W&B project owned by `mirkanodawit-western-governors-university`.
+It shows the project breadcrumb, sample1 artifact chain, selected `model_export:v3`,
+and its test run. The current W&B interface calls the graph tab **Lineage**.
+The prior instructor-account image has been replaced.
+
+Release `1.0.0` was executed from the public Git tag on `sample2.csv` using
+MLflow. Its data-check component failed `test_proper_boundaries` with one
+out-of-area row; five other checks passed. Release `1.0.1` completed all five
+pipeline steps on the same sample, passed all six data checks, and logged a
+new `model_export` artifact. Its training run is
+https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/h6g50azk
+with validation MAE $32.4271. The cleaned sample2 artifact is
+`clean_sample.csv:v2`; `clean_sample.csv:v0` retains `reference`.
+
+
 This project implements a reusable pipeline for estimating nightly rental prices in New York City and retraining on new weekly data. MLflow coordinates data acquisition, cleaning, validation, segregation, training, and an explicitly selected production model test. Hydra supplies configuration, scikit-learn packages preprocessing with the random forest, and the artifact-backed pipeline records data and model lineage in W&B.
 
-The core implementation and local checks are complete. Live W&B run and artifact evidence is recorded in evidence/live_audit.json. Historical release execution logs remain outstanding. Public access, training, production testing and Graph view have been verified. Local results below are labeled separately from live runs.
+The implementation, local checks, and updated W&B evidence are complete. The corrected artifact name, production test, graph, and tagged release executions are linked in the reviewer corrections above and in `SUBMISSION_DETAILS.txt`. Local results below are labeled separately from live runs.
 
 ## Reviewer links
 
@@ -29,20 +54,20 @@ This mapping follows the attached Project Rubric.mhtml. Criterion names below ma
 | Data Splitting | The pipeline again runs successfully | evidence/live_audit.json: train_val_test_split run zhsw6bpx | Successful split run and both W&B split artifacts verified |
 | Train the Random Forest | Complete the src/train_random_forest/run.py script | Commented imputation/one-hot pipeline, sk_pipe, fit, MLflow save, W&B mae logging | Implemented; local full-model export and reload pass |
 | Train the Random Forest | The pipeline again runs successfully | evidence/live_audit.json: finished training runs | Four required configurations completed successfully |
-| Train the Random Forest | Create the model_export artifact on W&B | random_forest_export artifacts of type model_export | MLflow sklearn exports verified in W&B; artifact type model_export |
+| Train the Random Forest | Create the model_export artifact on W&B | model_export:v3 contains seven MLflow sklearn model files; evidence/live_audit.json | Artifact name and type are both model_export |
 | Optimize Hyperparameters | Run training with different hyperparameters | evidence/live_audit.json; Hydra multirun | Four distinct Hydra configurations completed with MAE/R2; repeat runs also present |
-| Select the Best Model | Select the best performing model and tag it as prod | Lowest validation MAE: 200 trees, depth 50; defaults match | Lowest validation MAE model v7 assigned prod |
+| Select the Best Model | Select the best performing model and tag it as prod | evidence/wandb_model_selection.json | Lowest sample1 validation MAE model_export:v3 assigned prod |
 | Test Set Verification | Verify test set performance is comparable to performance on the validation set (no overfitting) | main.py explicit test_regression_model step; local validation/test MAE table | Production artifact test succeeded: MAE 33.8469 versus validation 34.1843 |
-| Visualize the Pipeline | Visualize the pipeline and verify proper structure | Artifact use/log calls establish lineage in W&B workflow | Graph view inspected; screenshot and live URL saved |
+| Visualize the Pipeline | Visualize the pipeline and verify proper structure | images/wandb-pipeline-graph.png; model_export:v3 Lineage tab | Fresh full-graph screenshot shows this project's account breadcrumb |
 | Release the Pipeline | Release v1.0.0 of the pipeline in GitHub | evidence/live_audit.json: GitHub releases API | Release 1.0.0 public and published |
-| Train the Model on a New Data Sample | Run the released pipeline on a new sample of data, with initial failure | evidence/boundary_check.json confirms shared check fails before filter | Actual tagged 1.0.0 MLflow sample2 failure log pending |
+| Train the Model on a New Data Sample | Run the released pipeline on a new sample of data, with initial failure | W&B failed data-test run bm3kjmqf; MLflow root bc12b0a930434a55bd57b7b2ef180b3c | Tagged 1.0.0 failed test_proper_boundaries on sample2; five checks passed |
 | Train the Model on a New Data Sample | Add a new cleaning step in basic_cleaning | clean_data filters NYC longitude and latitude bounds | Implemented; one sample2 outlier removed |
 | Train the Model on a New Data Sample | Prepare a new release | evidence/live_audit.json: GitHub releases API | Release 1.0.1 public; subsequent Windows compatibility and evidence updates are included on main |
-| Train the Model on a New Data Sample | Run the new release successfully | Both cleaned samples pass local checks; sample2 model exported | Actual tagged 1.0.1 successful MLflow run and new W&B model pending |
+| Train the Model on a New Data Sample | Run the new release successfully | W&B training run h6g50azk and MLflow root 374644e3e55a4259bc10db10a5165f45 | Tagged 1.0.1 ran on sample2; six checks passed and model_export:v4 logged |
 
 ### Artifact naming clarification
 
-The rubric cleaning criterion says `clean_data.csv`, but its reference criterion and the supplied step instructions say `clean_sample.csv`. This implementation uses `clean_sample.csv` consistently so reference lookup, splitting, and training agree. The rubric calls the model artifact `model_export`; the supplied instructions call it `random_forest_export`, and `model_export` is its artifact type. The implementation follows those supplied artifact names and preserves the required type. Review the names in the public W&B project before submission and flag this rubric wording discrepancy for the reviewer.
+The rubric cleaning criterion says `clean_data.csv`, but its reference criterion and supplied step instructions say `clean_sample.csv`. This implementation uses `clean_sample.csv` consistently. The model artifact now uses the rubric-required `model_export` for both its name and type.
 
 ## Step 1 Exploratory data analysis
 
@@ -86,11 +111,11 @@ Predictions and models are included in `NYC-rental-pipeline-local-results.zip`.
 | sample1.csv | 19,001 | 34.1843 | 33.8469 | 0.5619 |
 | sample2.csv | 46,427 | 32.4271 | 33.6707 | 0.5726 |
 
-The artifact-backed test uses `random_forest_export:prod` and `test_data.csv:latest`. It is intentionally excluded from the default pipeline because assigning `prod` is a manual model-selection step.
+The updated artifact-backed test uses `model_export:prod` and the pinned `test_data.csv:v0`. It is intentionally excluded from the default pipeline because assigning `prod` is a manual model-selection step.
 
 ## Step 6 Release and update demonstration
 
-Release 1.0.0 precedes the boundary fix. Release 1.0.1 includes the NYC boundary filter. Local boundary evidence demonstrates the expected failure on price-filtered sample2 and success after the filter. For the required release demonstration, run the two tagged versions on sample2 and retain the failure log from 1.0.0 and the successful pipeline log from 1.0.1. `REMOTE_RUN.md` provides the commands. A local check does not establish that the tagged MLflow pipeline was run remotely.
+Release 1.0.0 precedes the boundary fix. Release 1.0.1 includes the NYC boundary filter. Both public Git tags were executed through MLflow on sample2, with a failed W&B boundary-check run for 1.0.0 and a fully successful pipeline for 1.0.1. `evidence/release_executions.json` and the two release console files preserve the actual execution evidence. `REMOTE_RUN.md` provides reproduction commands.
 
 ## Reproduction and package contents
 
@@ -134,4 +159,4 @@ Screenshot: evidence/wandb-pipeline-lineage.jpg
 
 The graph confirms raw data to cleaning to splitting to training to the selected model and held-out testing. The live audit also records test-data input to the test run. The screenshot overview is compact; open the graph URL to inspect individual nodes.
 
-Remaining submission work: execute tagged release failure/fix on sample2. The Windows-compatible source and updated documentation are included on main. Existing releases 1.0.0 and 1.0.1 are public, but their sample2 execution evidence is not yet complete. Do not submit until those items are recorded.
+The historical details in this section describe the first submission. The October 15 reviewer corrections above and `SUBMISSION_DETAILS.txt` identify the current artifacts, graph, release runs, and validation results.

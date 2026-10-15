@@ -11,12 +11,16 @@ In this project you will build such a pipeline.
 - Public GitHub repository: https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter
 - Public W&B project: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb (anonymous access verified; see evidence/live_audit.json)
 - [Submission report](SUBMISSION_REPORT.md)
+- [Resubmission links and results](SUBMISSION_DETAILS.txt)
+- [Full W&B pipeline graph from this account](images/wandb-pipeline-graph.png)
+- [Failed release 1.0.0 data-check run on sample2](https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/bm3kjmqf)
+- [Successful release 1.0.1 training run on sample2](https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/h6g50azk)
 
-Submission status: core implementation, sample1 artifact-backed execution,
-production testing, and lineage are verified in [the live results](LIVE_RESULTS.md).
-Before final submission, retain actual sample2 runs from both historical releases.
-Existing local
-sample2 checks do not replace the required tagged-release execution.
+Submission status and reviewer evidence are tracked in [the resubmission report](SUBMISSION_REPORT.md).
+The corrected [pipeline graph](images/wandb-pipeline-graph.png) was captured
+from this project's W&B account. The current W&B interface calls the artifact
+graph tab **Lineage**; the breadcrumb in the image shows
+`mirkanodawit-western-governors-university / nyc_airbnb`.
 
 ## Table of contents
 
@@ -189,7 +193,7 @@ mlflow run . -P steps=train_random_forest \
   -P hydra_options="modeling.random_forest.max_depth=10,50 modeling.random_forest.n_estimators=100,200 -m"
 ```
 
-Assign the `prod` alias to the `random_forest_export` artifact from the run with
+Assign the `prod` alias to the `model_export` artifact from the run with
 the lowest validation MAE. Test that selected model on the held out test set:
 
 ```bash

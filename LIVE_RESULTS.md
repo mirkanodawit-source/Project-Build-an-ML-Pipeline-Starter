@@ -1,5 +1,9 @@
 # Verified public W&B results
 
+This page preserves evidence from the first submission. For the corrected
+`model_export` artifact and tagged sample2 executions, use
+[SUBMISSION_REPORT.md](SUBMISSION_REPORT.md) and `SUBMISSION_DETAILS.txt`.
+
 Public project: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb
 Anonymous access verified through the W&B API.
 
@@ -18,4 +22,4 @@ Screenshot: evidence/wandb-pipeline-lineage.jpg
 
 The graph confirms raw data to cleaning to splitting to training to the selected model and held-out testing. The live audit also records test-data input to the test run. The screenshot overview is compact; open the graph URL to inspect individual nodes.
 
-Remaining submission work: execute tagged release failure/fix on sample2. The Windows-compatible source and updated documentation are included on main. Existing releases 1.0.0 and 1.0.1 are public, but their sample2 execution evidence is not yet complete. Do not submit until those items are recorded.
+The release status above is historical; see the corrected submission report.

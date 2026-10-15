@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-10-13T07:48:25.361018+00:00",
+  "checked_at_utc": "2026-10-15T06:14:31.757898+00:00",
   "project_url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb",
   "anonymous_project_access": true,
   "runs": [
@@ -8,6 +8,7 @@
       "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/3mb8uoyt",
       "state": "finished",
       "job_type": "download_file",
+      "group": "development",
       "config": {
         "sample": "sample1.csv",
         "artifact_name": "sample.csv",
@@ -20,11 +21,19 @@
         {
           "name": "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v0",
           "type": "raw_data",
+          "aliases": [],
+          "files": [
+            "sample1.csv"
+          ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-3mb8uoyt-events:v0",
+          "type": "wandb-events",
           "aliases": [
             "latest"
           ],
           "files": [
-            "sample1.csv"
+            "events_0000.parquet"
           ]
         }
       ]
@@ -34,6 +43,7 @@
       "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/739g1q3q",
       "state": "failed",
       "job_type": "basic_cleaning",
+      "group": "development",
       "config": {
         "max_price": 350,
         "min_price": 10,
@@ -53,6 +63,7 @@
       "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/criucppw",
       "state": "finished",
       "job_type": "basic_cleaning",
+      "group": "development",
       "config": {
         "max_price": 350,
         "min_price": 10,
@@ -70,7 +81,6 @@
           "name": "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v0",
           "type": "clean_sample",
           "aliases": [
-            "latest",
             "reference"
           ],
           "files": [
@@ -84,6 +94,7 @@
       "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/taknuwfv",
       "state": "finished",
       "job_type": "download_file",
+      "group": "development",
       "config": {
         "sample": "sample1.csv",
         "artifact_name": "sample.csv",
@@ -96,9 +107,7 @@
         {
           "name": "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v0",
           "type": "raw_data",
-          "aliases": [
-            "latest"
-          ],
+          "aliases": [],
           "files": [
             "sample1.csv"
           ]
@@ -110,6 +119,7 @@
       "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/8vu04o3x",
       "state": "finished",
       "job_type": "basic_cleaning",
+      "group": "development",
       "config": {
         "max_price": 350,
         "min_price": 10,
@@ -127,7 +137,6 @@
           "name": "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v0",
           "type": "clean_sample",
           "aliases": [
-            "latest",
             "reference"
           ],
           "files": [
@@ -141,18 +150,31 @@
       "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/mw0kho4k",
       "state": "finished",
       "job_type": "data_tests",
+      "group": "development",
       "config": {},
       "metrics": {},
       "inputs": [
         "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v0"
       ],
-      "outputs": []
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-mw0kho4k-events:v0",
+          "type": "wandb-events",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "events_0000.parquet"
+          ]
+        }
+      ]
     },
     {
       "id": "zhsw6bpx",
       "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/zhsw6bpx",
       "state": "finished",
       "job_type": "train_val_test_split",
+      "group": "development",
       "config": {
         "input": "clean_sample.csv:latest",
         "test_size": 0.2,
@@ -167,9 +189,7 @@
         {
           "name": "mirkanodawit-western-governors-university/nyc_airbnb/trainval_data.csv:v0",
           "type": "trainval_data",
-          "aliases": [
-            "latest"
-          ],
+          "aliases": [],
           "files": [
             "trainval_data.csv"
           ]
@@ -177,11 +197,19 @@
         {
           "name": "mirkanodawit-western-governors-university/nyc_airbnb/test_data.csv:v0",
           "type": "test_data",
+          "aliases": [],
+          "files": [
+            "test_data.csv"
+          ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-zhsw6bpx-events:v0",
+          "type": "wandb-events",
           "aliases": [
             "latest"
           ],
           "files": [
-            "test_data.csv"
+            "events_0000.parquet"
           ]
         }
       ]
@@ -191,6 +219,7 @@
       "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/m5lt1n9o",
       "state": "finished",
       "job_type": "train_random_forest",
+      "group": "development",
       "config": {
         "n_jobs": -1,
         "val_size": 0.2,
@@ -229,6 +258,26 @@
             "requirements.txt",
             "serving_input_example.json"
           ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-m5lt1n9o-events:v0",
+          "type": "wandb-events",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "events_0000.parquet"
+          ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-m5lt1n9o-history:v0",
+          "type": "wandb-history",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "0000.parquet"
+          ]
         }
       ]
     },
@@ -237,6 +286,7 @@
       "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/d57g5dfv",
       "state": "finished",
       "job_type": "train_random_forest",
+      "group": "development",
       "config": {
         "n_jobs": -1,
         "val_size": 0.2,
@@ -275,6 +325,26 @@
             "requirements.txt",
             "serving_input_example.json"
           ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-d57g5dfv-history:v0",
+          "type": "wandb-history",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "0000.parquet"
+          ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-d57g5dfv-events:v0",
+          "type": "wandb-events",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "events_0000.parquet"
+          ]
         }
       ]
     },
@@ -283,6 +353,7 @@
       "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/j7cov5hj",
       "state": "finished",
       "job_type": "train_random_forest",
+      "group": "development",
       "config": {
         "n_jobs": -1,
         "val_size": 0.2,
@@ -321,6 +392,26 @@
             "requirements.txt",
             "serving_input_example.json"
           ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-j7cov5hj-history:v0",
+          "type": "wandb-history",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "0000.parquet"
+          ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-j7cov5hj-events:v0",
+          "type": "wandb-events",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "events_0000.parquet"
+          ]
         }
       ]
     },
@@ -329,6 +420,7 @@
       "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/ettlxj5o",
       "state": "finished",
       "job_type": "train_random_forest",
+      "group": "development",
       "config": {
         "n_jobs": -1,
         "val_size": 0.2,
@@ -367,6 +459,16 @@
             "requirements.txt",
             "serving_input_example.json"
           ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-ettlxj5o-history:v0",
+          "type": "wandb-history",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "0000.parquet"
+          ]
         }
       ]
     },
@@ -375,6 +477,7 @@
       "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/mw6tgqy9",
       "state": "finished",
       "job_type": "train_random_forest",
+      "group": "development",
       "config": {
         "n_jobs": -1,
         "val_size": 0.2,
@@ -413,6 +516,26 @@
             "requirements.txt",
             "serving_input_example.json"
           ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-mw6tgqy9-events:v0",
+          "type": "wandb-events",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "events_0000.parquet"
+          ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-mw6tgqy9-history:v0",
+          "type": "wandb-history",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "0000.parquet"
+          ]
         }
       ]
     },
@@ -421,6 +544,7 @@
       "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/3k44jpko",
       "state": "finished",
       "job_type": "train_random_forest",
+      "group": "development",
       "config": {
         "n_jobs": -1,
         "val_size": 0.2,
@@ -459,6 +583,16 @@
             "requirements.txt",
             "serving_input_example.json"
           ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-3k44jpko-history:v0",
+          "type": "wandb-history",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "0000.parquet"
+          ]
         }
       ]
     },
@@ -467,6 +601,7 @@
       "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/dcmnozbd",
       "state": "finished",
       "job_type": "train_random_forest",
+      "group": "development",
       "config": {
         "n_jobs": -1,
         "val_size": 0.2,
@@ -508,6 +643,26 @@
             "requirements.txt",
             "serving_input_example.json"
           ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-dcmnozbd-events:v0",
+          "type": "wandb-events",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "events_0000.parquet"
+          ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-dcmnozbd-history:v0",
+          "type": "wandb-history",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "0000.parquet"
+          ]
         }
       ]
     },
@@ -516,6 +671,7 @@
       "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/xw3wo4xm",
       "state": "finished",
       "job_type": "train_random_forest",
+      "group": "development",
       "config": {
         "n_jobs": -1,
         "val_size": 0.2,
@@ -554,6 +710,26 @@
             "requirements.txt",
             "serving_input_example.json"
           ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-xw3wo4xm-history:v0",
+          "type": "wandb-history",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "0000.parquet"
+          ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-xw3wo4xm-events:v0",
+          "type": "wandb-events",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "events_0000.parquet"
+          ]
         }
       ]
     },
@@ -562,6 +738,7 @@
       "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/rwyfahad",
       "state": "finished",
       "job_type": "test_model",
+      "group": "development",
       "config": {
         "mlflow_model": "random_forest_export:prod",
         "test_dataset": "test_data.csv:latest"
@@ -574,6 +751,790 @@
         "mirkanodawit-western-governors-university/nyc_airbnb/random_forest_export:v7",
         "mirkanodawit-western-governors-university/nyc_airbnb/test_data.csv:v0"
       ],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/run-rwyfahad-events:v0",
+          "type": "wandb-events",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "events_0000.parquet"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xvlfzpa8",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/xvlfzpa8",
+      "state": "finished",
+      "job_type": "train_random_forest",
+      "group": "development",
+      "config": {
+        "n_jobs": -1,
+        "val_size": 0.2,
+        "criterion": "squared_error",
+        "max_depth": 10,
+        "oob_score": true,
+        "rf_config": "C:\\Users\\BSD\\AppData\\Local\\Temp\\tmpz4quc_yo\\rf_config.json",
+        "random_seed": 42,
+        "stratify_by": "neighbourhood_group",
+        "max_features": 0.5,
+        "n_estimators": 100,
+        "output_artifact": "model_export",
+        "min_samples_leaf": 3,
+        "min_samples_split": 4,
+        "trainval_artifact": "trainval_data.csv:latest",
+        "max_tfidf_features": 5
+      },
+      "metrics": {
+        "mae": 34.431949196557326,
+        "r2": 0.5456126597490437
+      },
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/trainval_data.csv:v0"
+      ],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/model_export:v0",
+          "type": "model_export",
+          "aliases": [],
+          "files": [
+            "MLmodel",
+            "conda.yaml",
+            "input_example.json",
+            "model.pkl",
+            "python_env.yaml",
+            "requirements.txt",
+            "serving_input_example.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dk4dnq9p",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/dk4dnq9p",
+      "state": "finished",
+      "job_type": "train_random_forest",
+      "group": "development",
+      "config": {
+        "n_jobs": -1,
+        "val_size": 0.2,
+        "criterion": "squared_error",
+        "max_depth": 10,
+        "oob_score": true,
+        "rf_config": "C:\\Users\\BSD\\AppData\\Local\\Temp\\tmptep545ph\\rf_config.json",
+        "random_seed": 42,
+        "stratify_by": "neighbourhood_group",
+        "max_features": 0.5,
+        "n_estimators": 200,
+        "output_artifact": "model_export",
+        "min_samples_leaf": 3,
+        "min_samples_split": 4,
+        "trainval_artifact": "trainval_data.csv:latest",
+        "max_tfidf_features": 5
+      },
+      "metrics": {
+        "mae": 34.404576149502475,
+        "r2": 0.546276374972624
+      },
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/trainval_data.csv:v0"
+      ],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/model_export:v1",
+          "type": "model_export",
+          "aliases": [],
+          "files": [
+            "MLmodel",
+            "conda.yaml",
+            "input_example.json",
+            "model.pkl",
+            "python_env.yaml",
+            "requirements.txt",
+            "serving_input_example.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "o1zvydzl",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/o1zvydzl",
+      "state": "finished",
+      "job_type": "download_file",
+      "group": "review-release-1.0.0",
+      "config": {
+        "sample": "sample2.csv",
+        "artifact_name": "sample.csv",
+        "artifact_type": "raw_data",
+        "artifact_description": "Raw file as downloaded"
+      },
+      "metrics": {},
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v1",
+          "type": "raw_data",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "sample2.csv"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nbckq4la",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/nbckq4la",
+      "state": "finished",
+      "job_type": "train_random_forest",
+      "group": "development",
+      "config": {
+        "n_jobs": -1,
+        "val_size": 0.2,
+        "criterion": "squared_error",
+        "max_depth": 50,
+        "oob_score": true,
+        "rf_config": "C:\\Users\\BSD\\AppData\\Local\\Temp\\tmp70rg6uok\\rf_config.json",
+        "random_seed": 42,
+        "stratify_by": "neighbourhood_group",
+        "max_features": 0.5,
+        "n_estimators": 100,
+        "output_artifact": "model_export",
+        "min_samples_leaf": 3,
+        "min_samples_split": 4,
+        "trainval_artifact": "trainval_data.csv:latest",
+        "max_tfidf_features": 5
+      },
+      "metrics": {
+        "mae": 34.196322144888455,
+        "r2": 0.550075980783665
+      },
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/trainval_data.csv:v0"
+      ],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/model_export:v2",
+          "type": "model_export",
+          "aliases": [],
+          "files": [
+            "MLmodel",
+            "conda.yaml",
+            "input_example.json",
+            "model.pkl",
+            "python_env.yaml",
+            "requirements.txt",
+            "serving_input_example.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ejq3nioc",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/ejq3nioc",
+      "state": "failed",
+      "job_type": "basic_cleaning",
+      "group": "review-release-1.0.0",
+      "config": {
+        "max_price": 350,
+        "min_price": 10,
+        "output_type": "clean_sample",
+        "input_artifact": "sample.csv:latest",
+        "output_artifact": "clean_sample.csv",
+        "output_description": "Price-filtered NYC rental listings"
+      },
+      "metrics": {},
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v1"
+      ],
+      "outputs": []
+    },
+    {
+      "id": "2x09ia51",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/2x09ia51",
+      "state": "finished",
+      "job_type": "train_random_forest",
+      "group": "development",
+      "config": {
+        "n_jobs": -1,
+        "val_size": 0.2,
+        "criterion": "squared_error",
+        "max_depth": 50,
+        "oob_score": true,
+        "rf_config": "C:\\Users\\BSD\\AppData\\Local\\Temp\\tmpiqsnmh95\\rf_config.json",
+        "random_seed": 42,
+        "stratify_by": "neighbourhood_group",
+        "max_features": 0.5,
+        "n_estimators": 200,
+        "output_artifact": "model_export",
+        "min_samples_leaf": 3,
+        "min_samples_split": 4,
+        "trainval_artifact": "trainval_data.csv:latest",
+        "max_tfidf_features": 5
+      },
+      "metrics": {
+        "mae": 34.184256029779775,
+        "r2": 0.5506161616124368
+      },
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/trainval_data.csv:v0"
+      ],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/model_export:v3",
+          "type": "model_export",
+          "aliases": [
+            "prod"
+          ],
+          "files": [
+            "MLmodel",
+            "conda.yaml",
+            "input_example.json",
+            "model.pkl",
+            "python_env.yaml",
+            "requirements.txt",
+            "serving_input_example.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "iccu1qcf",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/iccu1qcf",
+      "state": "finished",
+      "job_type": "download_file",
+      "group": "review-release-1.0.0",
+      "config": {
+        "sample": "sample2.csv",
+        "artifact_name": "sample.csv",
+        "artifact_type": "raw_data",
+        "artifact_description": "Raw file as downloaded"
+      },
+      "metrics": {},
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v1",
+          "type": "raw_data",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "sample2.csv"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f1qelc8x",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/f1qelc8x",
+      "state": "finished",
+      "job_type": "basic_cleaning",
+      "group": "review-release-1.0.0",
+      "config": {
+        "max_price": 350,
+        "min_price": 10,
+        "output_type": "clean_sample",
+        "input_artifact": "sample.csv:latest",
+        "output_artifact": "clean_sample.csv",
+        "output_description": "Price-filtered NYC rental listings"
+      },
+      "metrics": {},
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v1"
+      ],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v1",
+          "type": "clean_sample",
+          "aliases": [],
+          "files": [
+            "clean_sample.csv"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "raf243ic",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/raf243ic",
+      "state": "finished",
+      "job_type": "data_tests",
+      "group": "review-release-1.0.0",
+      "config": {},
+      "metrics": {},
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v1",
+        "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v0"
+      ],
+      "outputs": []
+    },
+    {
+      "id": "amsky9ye",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/amsky9ye",
+      "state": "finished",
+      "job_type": "download_file",
+      "group": "review-release-1.0.1",
+      "config": {
+        "sample": "sample2.csv",
+        "artifact_name": "sample.csv",
+        "artifact_type": "raw_data",
+        "artifact_description": "Raw file as downloaded"
+      },
+      "metrics": {},
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v1",
+          "type": "raw_data",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "sample2.csv"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4ioazxv4",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/4ioazxv4",
+      "state": "finished",
+      "job_type": "basic_cleaning",
+      "group": "review-release-1.0.1",
+      "config": {
+        "max_price": 350,
+        "min_price": 10,
+        "output_type": "clean_sample",
+        "input_artifact": "sample.csv:latest",
+        "output_artifact": "clean_sample.csv",
+        "output_description": "Price-filtered NYC rental listings"
+      },
+      "metrics": {},
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v1"
+      ],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v2",
+          "type": "clean_sample",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "clean_sample.csv"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qdh8gzfd",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/qdh8gzfd",
+      "state": "finished",
+      "job_type": "data_tests",
+      "group": "review-release-1.0.1",
+      "config": {},
+      "metrics": {},
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v2",
+        "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v0"
+      ],
+      "outputs": []
+    },
+    {
+      "id": "eyd17cut",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/eyd17cut",
+      "state": "finished",
+      "job_type": "test_model",
+      "group": "review-model-export-test",
+      "config": {
+        "mlflow_model": "model_export:prod",
+        "test_dataset": "test_data.csv:v0"
+      },
+      "metrics": {
+        "mae": 33.846924076517,
+        "r2": 0.5619290498292977
+      },
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/model_export:v3",
+        "mirkanodawit-western-governors-university/nyc_airbnb/test_data.csv:v0"
+      ],
+      "outputs": []
+    },
+    {
+      "id": "a7yw5nuv",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/a7yw5nuv",
+      "state": "failed",
+      "job_type": "train_val_test_split",
+      "group": "review-release-1.0.1",
+      "config": {
+        "input": "clean_sample.csv:latest",
+        "test_size": 0.2,
+        "random_seed": 42,
+        "stratify_by": "neighbourhood_group"
+      },
+      "metrics": {},
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v2"
+      ],
+      "outputs": []
+    },
+    {
+      "id": "7ewcwktz",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/7ewcwktz",
+      "state": "finished",
+      "job_type": "download_file",
+      "group": "review-release-1.0.1",
+      "config": {
+        "sample": "sample2.csv",
+        "artifact_name": "sample.csv",
+        "artifact_type": "raw_data",
+        "artifact_description": "Raw file as downloaded"
+      },
+      "metrics": {},
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v1",
+          "type": "raw_data",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "sample2.csv"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9yrnc2sv",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/9yrnc2sv",
+      "state": "finished",
+      "job_type": "basic_cleaning",
+      "group": "review-release-1.0.1",
+      "config": {
+        "max_price": 350,
+        "min_price": 10,
+        "output_type": "clean_sample",
+        "input_artifact": "sample.csv:latest",
+        "output_artifact": "clean_sample.csv",
+        "output_description": "Price-filtered NYC rental listings"
+      },
+      "metrics": {},
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v1"
+      ],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v2",
+          "type": "clean_sample",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "clean_sample.csv"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bu1blfoc",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/bu1blfoc",
+      "state": "finished",
+      "job_type": "data_tests",
+      "group": "review-release-1.0.1",
+      "config": {},
+      "metrics": {},
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v2",
+        "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v0"
+      ],
+      "outputs": []
+    },
+    {
+      "id": "e16kwboy",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/e16kwboy",
+      "state": "finished",
+      "job_type": "train_val_test_split",
+      "group": "review-release-1.0.1",
+      "config": {
+        "input": "clean_sample.csv:latest",
+        "test_size": 0.2,
+        "random_seed": 42,
+        "stratify_by": "neighbourhood_group"
+      },
+      "metrics": {},
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v2"
+      ],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/trainval_data.csv:v1",
+          "type": "trainval_data",
+          "aliases": [],
+          "files": [
+            "tmpe9vqplp9"
+          ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/test_data.csv:v1",
+          "type": "test_data",
+          "aliases": [],
+          "files": [
+            "tmpuys_bcv1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4wzbhwma",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/4wzbhwma",
+      "state": "failed",
+      "job_type": "train_random_forest",
+      "group": "review-release-1.0.1",
+      "config": {
+        "val_size": 0.2,
+        "rf_config": "C:UsersBSDAppDataLocalTemptmpuw8rjohcrf_config.json",
+        "random_seed": 42,
+        "stratify_by": "neighbourhood_group",
+        "output_artifact": "model_export",
+        "trainval_artifact": "trainval_data.csv:latest",
+        "max_tfidf_features": 5
+      },
+      "metrics": {},
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "id": "ecwq7710",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/ecwq7710",
+      "state": "finished",
+      "job_type": "download_file",
+      "group": "review-release-1.0.1",
+      "config": {
+        "sample": "sample2.csv",
+        "artifact_name": "sample.csv",
+        "artifact_type": "raw_data",
+        "artifact_description": "Raw file as downloaded"
+      },
+      "metrics": {},
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v1",
+          "type": "raw_data",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "sample2.csv"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "x0xlkjzc",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/x0xlkjzc",
+      "state": "finished",
+      "job_type": "basic_cleaning",
+      "group": "review-release-1.0.1",
+      "config": {
+        "max_price": 350,
+        "min_price": 10,
+        "output_type": "clean_sample",
+        "input_artifact": "sample.csv:latest",
+        "output_artifact": "clean_sample.csv",
+        "output_description": "Price-filtered NYC rental listings"
+      },
+      "metrics": {},
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v1"
+      ],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v2",
+          "type": "clean_sample",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "clean_sample.csv"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5ka7keeu",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/5ka7keeu",
+      "state": "finished",
+      "job_type": "data_tests",
+      "group": "review-release-1.0.1",
+      "config": {},
+      "metrics": {},
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v2",
+        "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v0"
+      ],
+      "outputs": []
+    },
+    {
+      "id": "rbwqm56f",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/rbwqm56f",
+      "state": "finished",
+      "job_type": "train_val_test_split",
+      "group": "review-release-1.0.1",
+      "config": {
+        "input": "clean_sample.csv:latest",
+        "test_size": 0.2,
+        "random_seed": 42,
+        "stratify_by": "neighbourhood_group"
+      },
+      "metrics": {},
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v2"
+      ],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/trainval_data.csv:v2",
+          "type": "trainval_data",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "tmpvugwf6h9"
+          ]
+        },
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/test_data.csv:v2",
+          "type": "test_data",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "tmpye2as13e"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "h6g50azk",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/h6g50azk",
+      "state": "finished",
+      "job_type": "train_random_forest",
+      "group": "review-release-1.0.1",
+      "config": {
+        "n_jobs": -1,
+        "val_size": 0.2,
+        "criterion": "squared_error",
+        "max_depth": 50,
+        "oob_score": true,
+        "rf_config": "C:\\Users\\BSD\\AppData\\Local\\Temp\\tmpkhwxxqqo\\rf_config.json",
+        "random_seed": 42,
+        "stratify_by": "neighbourhood_group",
+        "max_features": 0.5,
+        "n_estimators": 200,
+        "output_artifact": "model_export",
+        "min_samples_leaf": 3,
+        "min_samples_split": 4,
+        "trainval_artifact": "trainval_data.csv:latest",
+        "max_tfidf_features": 5
+      },
+      "metrics": {
+        "mae": 32.42710314040695,
+        "r2": 0.5781173766761045
+      },
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/trainval_data.csv:v2"
+      ],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/model_export:v4",
+          "type": "model_export",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "MLmodel",
+            "conda.yaml",
+            "input_example.json",
+            "model.pkl",
+            "python_env.yaml",
+            "requirements.txt",
+            "serving_input_example.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ynws91ir",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/ynws91ir",
+      "state": "finished",
+      "job_type": "download_file",
+      "group": "review-release-1.0.0",
+      "config": {
+        "sample": "sample2.csv",
+        "artifact_name": "sample.csv",
+        "artifact_type": "raw_data",
+        "artifact_description": "Raw file as downloaded"
+      },
+      "metrics": {},
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v1",
+          "type": "raw_data",
+          "aliases": [
+            "latest"
+          ],
+          "files": [
+            "sample2.csv"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qctq8esu",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/qctq8esu",
+      "state": "finished",
+      "job_type": "basic_cleaning",
+      "group": "review-release-1.0.0",
+      "config": {
+        "max_price": 350,
+        "min_price": 10,
+        "output_type": "clean_sample",
+        "input_artifact": "sample.csv:latest",
+        "output_artifact": "clean_sample.csv",
+        "output_description": "Price-filtered NYC rental listings"
+      },
+      "metrics": {},
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/sample.csv:v1"
+      ],
+      "outputs": [
+        {
+          "name": "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v1",
+          "type": "clean_sample",
+          "aliases": [],
+          "files": [
+            "clean_sample.csv"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bm3kjmqf",
+      "url": "https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/bm3kjmqf",
+      "state": "failed",
+      "job_type": "data_tests",
+      "group": "review-release-1.0.0",
+      "config": {},
+      "metrics": {},
+      "inputs": [
+        "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v1",
+        "mirkanodawit-western-governors-university/nyc_airbnb/clean_sample.csv:v0"
+      ],
       "outputs": []
     }
   ],
@@ -581,16 +1542,16 @@
     {
       "tag": "1.0.0",
       "status_code": 200,
-      "url": "https://github.com/mihretupg/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.0",
+      "url": "https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.0",
       "draft": false,
-      "published_at": "2026-10-12T12:41:45Z"
+      "published_at": "2026-10-13T18:28:18Z"
     },
     {
       "tag": "1.0.1",
       "status_code": 200,
-      "url": "https://github.com/mihretupg/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.1",
+      "url": "https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.1",
       "draft": false,
-      "published_at": "2026-10-12T12:41:48Z"
+      "published_at": "2026-10-13T18:28:20Z"
     }
   ]
 }

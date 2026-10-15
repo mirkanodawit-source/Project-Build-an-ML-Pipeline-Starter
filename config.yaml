@@ -16,7 +16,7 @@ artifacts:
   reference_alias: reference
   trainval: trainval_data.csv
   test: test_data.csv
-  model: random_forest_export
+  model: model_export
   production_alias: prod
 etl:
   sample: "sample1.csv"

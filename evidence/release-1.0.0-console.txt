@@ -1,0 +1,149 @@
+.\.venv\Scripts\python.exe : 2026/10/15 01:09:18 INFO mlflow.projects.utils: === Fetching project from
+https://github.com/mirkanodawit-source/Project-Build-an-ML-Pipeline-Starter.git into
+C:\Users\BSD\AppData\Local\Temp\tmple1woz8p ===
+At line:2 char:262
++ ... +$env:Path; .\.venv\Scripts\python.exe -m mlflow run https://github.c ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (2026/10/15 01:0...tmple1woz8p ===:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+2026/10/15 01:09:27 INFO mlflow.projects.utils: === Created directory C:\Users\BSD\AppData\Local\Temp\tmpbuv5cpxa for
+downloading remote URIs passed to arguments of type 'path' ===
+2026/10/15 01:09:37 INFO mlflow.projects.utils: === Created directory C:\Users\BSD\AppData\Local\Temp\tmpw0erdt97 for
+downloading remote URIs passed to arguments of type 'path' ===
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from C:\Users\BSD\_netrc.
+wandb: Currently logged in as: mirkanodawit (mirkanodawit-western-governors-university) to https://api.wandb.ai. Use
+`wandb login --relogin` to force relogin
+wandb: setting up run ynws91ir
+wandb: Tracking run with wandb version 0.24.0
+wandb: Run data is saved locally in
+C:\Users\BSD\AppData\Local\Temp\tmple1woz8p\components\get_data\wandb\run-20261015_010947-ynws91ir
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run wandering-disco-41
+wandb:  View project at https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb
+wandb:  View run at https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/ynws91ir
+2026-10-15 01:09:52,777 Returning sample sample2.csv
+2026-10-15 01:09:52,779 Uploading sample.csv to Weights & Biases
+wandb:
+wandb: 🚀 View run wandering-disco-41 at: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/ynws91ir
+wandb: Find logs at: wandb\run-20261015_010947-ynws91ir\logs
+2026/10/15 01:10:01 INFO mlflow.projects: === Run (ID '2266b301248a49018d9ad7a3ae232a18') succeeded ===
+2026/10/15 01:10:01 INFO mlflow.projects.utils: === Created directory C:\Users\BSD\AppData\Local\Temp\tmpnz4axrc9 for
+downloading remote URIs passed to arguments of type 'path' ===
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from C:\Users\BSD\_netrc.
+wandb: Currently logged in as: mirkanodawit (mirkanodawit-western-governors-university) to https://api.wandb.ai. Use
+`wandb login --relogin` to force relogin
+wandb: setting up run qctq8esu
+wandb: Tracking run with wandb version 0.24.0
+wandb: Run data is saved locally in
+C:\Users\BSD\AppData\Local\Temp\tmple1woz8p\src\basic_cleaning\wandb\run-20261015_011011-qctq8esu
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run spring-capybara-42
+wandb:  View project at https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb
+wandb:  View run at https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/qctq8esu
+wandb: uploading artifact clean_sample.csv; updating run metadata
+wandb: uploading artifact clean_sample.csv; updating run metadata; uploading wandb-summary.json
+wandb: uploading artifact clean_sample.csv; uploading summary; uploading config.yaml
+wandb: uploading config.yaml
+wandb:  View run spring-capybara-42 at:
+https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/qctq8esu
+wandb:  View project at: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: .\wandb\run-20261015_011011-qctq8esu\logs
+2026/10/15 01:10:34 INFO mlflow.projects: === Run (ID '425557b8ed6b4a7e9a358c64bb2e5f93') succeeded ===
+2026/10/15 01:10:34 INFO mlflow.projects.utils: === Created directory C:\Users\BSD\AppData\Local\Temp\tmplaadj4ca for
+downloading remote URIs passed to arguments of type 'path' ===
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-8.4.2, pluggy-1.6.0 -- C:\Users\BSD\Documents\Dave\Build ML pipeline for short term Rental Prices in NYC\Project-Build-an-ML-Pipeline-Starter\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\BSD\AppData\Local\Temp\tmple1woz8p\src\data_check
+plugins: anyio-4.15.1, hydra-core-1.3.2, platformdirs-4.13.0
+collecting ... collected 6 items
+
+test_data.py::test_column_names PASSED                                   [ 16%]
+test_data.py::test_neighborhood_names PASSED                             [ 33%]
+test_data.py::test_proper_boundaries FAILED                              [ 50%]
+test_data.py::test_similar_neigh_distrib PASSED                          [ 66%]
+test_data.py::test_row_count PASSED                                      [ 83%]
+wandb: updating run metadata
+wandb: updating run metadata; uploading summary, console lines 0-52; uploading output.log; uploading wandb-summary.json
+wandb: uploading wandb-summary.json
+wandb: uploading config.yaml
+wandb: uploading data
+wandb:  View run ruby-cloud-43 at: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb/runs/bm3kjmqf
+wandb:  View project at: https://wandb.ai/mirkanodawit-western-governors-university/nyc_airbnb
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: .\wandb\run-20261015_011046-bm3kjmqf\logs
+test_data.py::test_price_range PASSED                                    [100%]
+
+================================== FAILURES ===================================
+___________________________ test_proper_boundaries ____________________________
+
+data =              id  ... availability_365
+0          2539  ...              365
+1          2595  ...              355
+2   ...              27
+46426  36485609  ...                2
+46427  36487245  ...               23
+
+[46428 rows x 16 columns]
+
+    def test_proper_boundaries(data: pd.DataFrame):
+        """
+        Test proper longitude and latitude boundaries for properties in and around NYC
+        """
+        idx = data['longitude'].between(-74.25, -73.50) & data['latitude'].between(40.5, 41.2)
+
+>       assert np.sum(~idx) == 0
+E       assert np.int64(1) == 0
+E        +  where np.int64(1) = <function sum at 0x000002E5F92F2A70>(~0        True\n1        True\n2        True\n3        True\n4        True\n         ... \n46423    True\n46424    True\n46425    True\n46426    True\n46427    True\nLength: 46428, dtype: bool)
+E        +    where <function sum at 0x000002E5F92F2A70> = np.sum
+
+test_data.py:57: AssertionError
+============================== warnings summary ===============================
+test_data.py::test_column_names
+test_data.py::test_column_names
+test_data.py::test_column_names
+test_data.py::test_column_names
+test_data.py::test_column_names
+test_data.py::test_column_names
+  C:\Users\BSD\Documents\Dave\Build ML pipeline for short term Rental Prices in NYC\Project-Build-an-ML-Pipeline-Starter\.venv\Lib\site-packages\wandb\analytics\sentry.py:268: DeprecationWarning: Read the `app_url` setting from the appropriate Settings object.
+    app_url = wandb.util.app_url(tags["base_url"])  # type: ignore[index]
+
+test_data.py::test_column_names
+test_data.py::test_column_names
+test_data.py::test_column_names
+  C:\Users\BSD\Documents\Dave\Build ML pipeline for short term Rental Prices in NYC\Project-Build-an-ML-Pipeline-Starter\.venv\Lib\site-packages\wandb\analytics\sentry.py:279: DeprecationWarning: The `Scope.user` setter is deprecated in favor of `Scope.set_user()`.
+    self.scope.user = {"email": email}
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED test_data.py::test_proper_boundaries - assert np.int64(1) == 0
+ +  where np.int64(1) = <function sum at 0x000002E5F92F2A70>(~0        True\n1        True\n2        True\n3        True\n4        True\n         ... \n46423    True\n46424    True\n46425    True\n46426    True\n46427    True\nLength: 46428, dtype: bool)
+ +    where <function sum at 0x000002E5F92F2A70> = np.sum
+================== 1 failed, 5 passed, 9 warnings in 40.62s ===================
+Error executing job with overrides: ["main.steps='all'", 'main.env_manager=local', 'etl.sample=sample2.csv',
+'main.experiment_name=review-release-1.0.0']
+
+Traceback (most recent call last):
+  File "C:\Users\BSD\AppData\Local\Temp\tmple1woz8p\main.py", line 71, in go
+    mlflow.run(
+    ~~~~~~~~~~^
+        os.path.join(project_root, "src", "data_check"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        },
+        ^^
+    )
+    ^
+  File "C:\Users\BSD\Documents\Dave\Build ML pipeline for short term Rental Prices in
+NYC\Project-Build-an-ML-Pipeline-Starter\.venv\Lib\site-packages\mlflow\projects\__init__.py", line 375, in run
+    _wait_for(submitted_run_obj)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BSD\Documents\Dave\Build ML pipeline for short term Rental Prices in
+NYC\Project-Build-an-ML-Pipeline-Starter\.venv\Lib\site-packages\mlflow\projects\__init__.py", line 392, in _wait_for
+    raise ExecutionException(f"Run (ID '{run_id}') failed")
+mlflow.exceptions.ExecutionException: Run (ID '3182b06660334c3bbd093a140f724b75') failed
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+2026/10/15 01:11:29 ERROR mlflow.cli: === Run (ID 'bc12b0a930434a55bd57b7b2ef180b3c') failed ===
